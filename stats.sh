@@ -17,7 +17,7 @@ IFS=$'\n'
 for i in $(cat ${urlsfile})
 do
 i=$(echo $i | tr -d '\n' | tr -d '\r')
-count=`grep $i $logfile | wc -l`
+count=`grep -E $i $logfile | wc -l`
 percents=$((100*$count/$total))"%"
 printf "%10s %10s %s\n" "$count" "$percents" "$i"
 done
