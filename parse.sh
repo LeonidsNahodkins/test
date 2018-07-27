@@ -1,5 +1,6 @@
 service=$1
-logname="${service}_logs"
+logname=$2
+
 cat ${logname} | grep -Eo "(GET|POST|PUT|DELETE).* HTTP" | cut -d " " -f1,2 > ${service}.dat
 
 #Get list of all days when Timestams like this [2018-07-11T06:53:55+00:00]
