@@ -23,7 +23,7 @@ date_pattern=$date_pattern2
 hour_pattern=$hour_pattern2
 fi
 
-days=$(cat ${logname} | grep -Eo "${date_pattern}" | uniq)
+days=$(cat ${logname} | grep -Eo "${date_pattern}" | sort | uniq)
 echo "$days"
 day=$(echo "${days}" | tail -n 2 | head -n 1 | grep -Eo $date_pattern)
 
